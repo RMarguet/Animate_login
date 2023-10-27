@@ -1,0 +1,191 @@
+* {
+    margin: 0; // Pour rectifier les marges natives du navigateur
+  }
+
+  $input-color: #F2F2F2;
+  $background-color: #FFF;
+  $sendbuttonBackground-color : #1C1C1C;
+  $sendbuttontext-color : #FFF;
+  $networkLinkBorder-color : #1C1C1C;
+  $networkLinkText-color: #1C1C1C;
+  $networkLine-color : #F0EDFF;
+
+  @mixin networklink-border {
+    border: 1px solid $networkLinkBorder-color;
+  }
+
+  @keyframes load-login {
+    25% {
+        opacity: 0.25;
+    }
+
+    100% {
+        opacity: 1;
+    }
+  }
+
+body {
+    background-color: black; //PAS DE VARIABLE CAR COULEUR DE FOND DE PRESENTATION (PAS TAPER)
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+
+    /**_____ BACKGROUND _____ **/
+
+    &__contain {
+        background-color: $background-color;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        gap: 125px;
+        padding: 34px;
+        border-radius: 54px;
+        opacity: 0;
+
+        animation: load-login 800ms;
+        animation-fill-mode: forwards;
+    }
+        
+
+    &__flower {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: translateY(-50%);
+        opacity: 0;
+
+        animation: load-login 800ms;
+        animation-fill-mode: forwards;
+        animation-delay: 300ms;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        margin-left: 151px;
+        opacity: 0;
+
+        animation: load-login 800ms;
+        animation-fill-mode: forwards;
+        animation-delay: 800ms;
+    }
+
+    /**_____ LOGIN-INTERFACE _____ **/
+
+    &__title {
+        font-family: 'Smooch Sans', sans-serif;
+        font-size: 120px;
+        font-weight: 700;
+        color: #1C1C1C;
+        margin-bottom: -30px;
+    }
+
+    &__subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+
+    &__formu {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    &__input {
+        background-color: $input-color;
+        border-radius: 13px;
+        padding: 14px 18px;
+        border: none;
+    }
+
+    &__send-button {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+
+        background-color: $sendbuttonBackground-color;
+        color: $sendbuttontext-color;
+        border: none;
+        border-radius: 13px;
+        padding: 17px;
+        cursor: pointer;
+    }
+
+    /**_____ SOCIAL_NETWORK _____ **/
+
+    &__social-network {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 25px;
+    }
+
+        // NETWORK-SUBTITLE
+
+        &__network-subtitle-contain {
+            position: relative;
+        }
+
+        &__network-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+
+            display: inline-block;
+            position: relative;
+            background-color: $background-color;
+            padding: 0px 5px 0px 5px;
+            z-index: 2;
+        }
+
+        &__line {
+            position: absolute;
+            background-color: $networkLine-color;
+            height: 1px;
+            top: 50%;
+            bottom: 50%;
+            right: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+    &__network-link {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+
+        color: $networkLinkText-color;
+        padding: 17px;
+        @include networklink-border;
+        border-radius: 13px;
+        text-decoration: none;
+
+    }
+
+
+    /**_____ ANIM _____ **/
+
+    &__img {
+        opacity: 0;
+
+        animation: load-login 800ms;
+        animation-fill-mode: forwards;
+        animation-delay: 1000ms;
+    }
+
+}
