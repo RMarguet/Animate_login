@@ -14,7 +14,7 @@
     border: 1px solid $networkLinkBorder-color;
   }
 
-  @keyframes load-login {
+  @keyframes general-loading {
     25% {
         opacity: 0.25;
     }
@@ -23,6 +23,21 @@
         opacity: 1;
     }
   }
+
+  @keyframes login-page {
+    25% {
+        opacity: 0.25;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+  }
+
+  $general-loading-duration : 800ms;
+
+
 
 body {
     background-color: black; //PAS DE VARIABLE CAR COULEUR DE FOND DE PRESENTATION (PAS TAPER)
@@ -45,7 +60,7 @@ body {
         border-radius: 54px;
         opacity: 0;
 
-        animation: load-login 800ms;
+        animation: general-loading $general-loading-duration;
         animation-fill-mode: forwards;
     }
         
@@ -57,7 +72,7 @@ body {
         transform: translateY(-50%);
         opacity: 0;
 
-        animation: load-login 800ms;
+        animation: general-loading $general-loading-duration;
         animation-fill-mode: forwards;
         animation-delay: 300ms;
     }
@@ -69,10 +84,11 @@ body {
         justify-content: center;
         margin-left: 151px;
         opacity: 0;
+        transform: translateX(150%);
 
-        animation: load-login 800ms;
+        animation: login-page 1000ms;
         animation-fill-mode: forwards;
-        animation-delay: 800ms;
+        animation-delay: 1500ms;
     }
 
     /**_____ LOGIN-INTERFACE _____ **/
@@ -180,12 +196,72 @@ body {
 
     /**_____ ANIM _____ **/
 
-    &__img {
-        opacity: 0;
+    &__anim {
+        width: 683px;
+        height: 700px;
+        border-radius: 5%;
+        position: relative;
+    }
 
-        animation: load-login 800ms;
+    &__anim-background {
+        background: linear-gradient(to bottom, #9f3412 0%, #fb9a4d 100%);
+        width: 683px;
+        height: 700px;
+        border-radius: 5%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+
+        opacity: 0;
+        animation: general-loading $general-loading-duration;
         animation-fill-mode: forwards;
-        animation-delay: 1000ms;
+        animation-delay: 350ms;
+        animation-timing-function: ease-out
+    }
+
+    &__space-ship {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+
+        opacity: 0;
+        animation: general-loading $general-loading-duration;
+        animation-fill-mode: forwards;
+        animation-delay: 700ms;
+        animation-timing-function: ease-out
+    }
+
+    &__fish-and-rock {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+
+        opacity: 0;
+        animation: general-loading $general-loading-duration;
+        animation-fill-mode: forwards;
+        animation-delay: 1150ms;
+        animation-timing-function: ease-out
+    }
+
+    &__charactere {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+
+        opacity: 0;
+        opacity: 0;
+        animation: general-loading $general-loading-duration;
+        animation-fill-mode: forwards;
+        animation-delay: 1400ms;
+        animation-timing-function: ease-out
     }
 
 }
