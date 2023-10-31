@@ -35,7 +35,8 @@
     }
   }
 
-  $general-loading-duration : 800ms;
+  $general-loading-duration : 500ms;
+  $login-loading-duration : 1000ms;
 
 
 
@@ -48,7 +49,7 @@ body {
     justify-content: center;
     padding: 50px;
 
-    /**_____ BACKGROUND _____ **/
+    /**_____ BACKGROUND _____**/
 
     &__contain {
         background-color: $background-color;
@@ -86,9 +87,9 @@ body {
         opacity: 0;
         transform: translateX(150%);
 
-        animation: login-page 1000ms;
+        animation: login-page $login-loading-duration;
         animation-fill-mode: forwards;
-        animation-delay: 1500ms;
+        animation-delay: 1200ms;
     }
 
     /**_____ LOGIN-INTERFACE _____ **/
@@ -97,7 +98,7 @@ body {
         font-family: 'Smooch Sans', sans-serif;
         font-size: 120px;
         font-weight: 700;
-        color: #1C1C1C;
+        color: $networkLinkBorder-color;
         margin-bottom: -30px;
     }
 
@@ -106,7 +107,6 @@ body {
         font-size: 14px;
         font-weight: 400;
     }
-
 
     &__formu {
         display: flex;
@@ -117,12 +117,35 @@ body {
         margin-bottom: 24px;
     }
 
+    // LOGIN CONTAIN
+
+    &__login-contain {
+        position: relative;
+    }
+
     &__input {
+        display:flex;
+        width: 348px;
         background-color: $input-color;
         border-radius: 13px;
-        padding: 14px 18px;
         border: none;
+        padding: 17px 18px 17px 48px;
+
+        &::placeholder {
+            color: $networkLinkText-color;
+            font-family:'Poppins', sans-serif;
+            font-size: 12px;
+        }
     }
+        // INPUT LOGO
+
+        &__input-logo {
+        width: 24px;
+        left: 18px;
+        bottom: 0;
+        transform: translateY(-50%);
+        position: absolute;
+        }
 
     &__send-button {
         font-family: 'Poppins', sans-serif;
@@ -194,7 +217,7 @@ body {
     }
 
 
-    /**_____ ANIM _____ **/
+    /**_____ BACKGROUND ANIMATION _____ **/
 
     &__anim {
         width: 683px;

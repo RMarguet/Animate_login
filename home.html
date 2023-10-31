@@ -22,9 +22,17 @@
                 <div class="login-page__login">
                     <h1 class="login-page__title">Welcome</h1>
                     <h2 class="login-page__subtitle">We are glad to see you back with us</h2>
+                    
                     <form class="login-page__formu" method="get" action="">
-                        <input class="login-page__input" type="text" name="login" id="login" placeholder="Username" required>
-                        <input class="login-page__input" type="password" name="password" id="password" placeholder="Password" required>
+                        <div class="login-page__login-contain">
+                            <input class="login-page__input" type="text" name="login" id="login" placeholder="Username" required>
+                            <img class="login-page__input-logo" src="style/images/login/logo_username.svg" alt="logo username formulaire">
+                        </div>
+
+                        <div class="login-page__login-contain">
+                            <input class="login-page__input" type="password" name="password" id="password" placeholder="Password" required>
+                            <img class="login-page__input-logo" src="style/images/login/logo_password.svg" alt="logo password formulaire">
+                        </div>
                         <input class="login-page__send-button" type="submit" value="NEXT">
                     </form>
 
